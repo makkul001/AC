@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academics — SAC School</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="logo">
+    <div class="logo-mark">S</div>
+    <span>SAC School</span>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="academics.html" class="active">Academics</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="toppers.html">Toppers</a>
+    <a href="teachers.html">Teachers</a>
+  </div>
+  <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header" style="margin-top:64px;">
+  <h1>Academics</h1>
+  <p>Click a department to meet the teachers</p>
+</div>
+
+<!-- DEPARTMENTS -->
+<section>
+  <span class="section-label">Departments</span>
+  <h2 class="section-title">Our Subjects &amp; <em>Departments</em></h2>
+
+  <div class="cards-grid">
+
+    <div class="card principal-card" onclick="showTeacher('principal')">
+      <div class="badge">Leadership</div>
+      <div style="font-size:2.5rem;margin-bottom:.75rem;">🎓</div>
+      <h3>Principal</h3>
+      <p>Head of Institution</p>
+    </div>
+
+    <div class="card" onclick="showTeacher('math')">
+      <div class="card-icon" style="background:#eff6ff;">📐</div>
+      <h3>Mathematics</h3>
+      <p>Algebra, Geometry, Calculus &amp; more</p>
+    </div>
+
+    <div class="card" onclick="showTeacher('science')">
+      <div class="card-icon" style="background:#f0fdf4;">🔬</div>
+      <h3>Science</h3>
+      <p>Physics, Chemistry &amp; Biology</p>
+    </div>
+
+    <div class="card" onclick="showTeacher('english')">
+      <div class="card-icon" style="background:#fef9ee;">📖</div>
+      <h3>English</h3>
+      <p>Literature, Grammar &amp; Communication</p>
+    </div>
+
+    <div class="card" onclick="showTeacher('social')">
+      <div class="card-icon" style="background:#fdf2f8;">🌍</div>
+      <h3>Social Science</h3>
+      <p>History, Geography &amp; Civics</p>
+    </div>
+
+    <div class="card" onclick="showTeacher('assamese')">
+      <div class="card-icon" style="background:#fefce8;">✍️</div>
+      <h3>Assamese</h3>
+      <p>Language, Literature &amp; Culture</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- TEACHER POPUP -->
+<div id="teacherPopup" onclick="outsideClick(event)">
+  <div class="popup-box">
+    <button class="close-btn" onclick="closeTeacher()">✕</button>
+    <h3 id="teacherSubject"></h3>
+    <div id="teachersList"></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo"><div class="logo-mark">S</div><span>SAC School</span></a>
+      <p style="margin-top:.75rem;">Knowledge · Discipline · Success.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="academics.html">Academics</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="toppers.html">Toppers</a></li>
+        <li><a href="teachers.html">Teachers</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="#">Assam, India</a></li>
+        <li><a href="#">info@sacschool.edu.in</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 SAC School · All Rights Reserved</span>
+  </div>
+</footer>
+
+<script>
+  // Navbar
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+  });
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  menuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+    const spans = menuBtn.querySelectorAll('span');
+    const isOpen = navLinks.classList.contains('open');
+    spans[0].style.transform = isOpen ? 'rotate(45deg) translate(5px,5px)' : '';
+    spans[1].style.opacity = isOpen ? '0' : '1';
+    spans[2].style.transform = isOpen ? 'rotate(-45deg) translate(5px,-5px)' : '';
+  });
+
+  // Teacher data
+  const teacherData = {
+    principal: {
+      title: '🎓 Principal',
+      teachers: [{ name: 'Principal', subject: 'Head of Institution', img: 'images/principal.jpg' }]
+    },
+    math: {
+      title: '📐 Mathematics Department',
+      teachers: [{ name: 'M Hussain,', subject: 'Mathematics · BSc, BEd · 10 yrs exp.', img: 'images/m hussain.jpg' }]
+    },
+    science: {
+      title: '🔬 Science Department',
+      teachers: [{ name: 'S Islam', subject: 'Science', img: 'images/s islam.jpg' }]
+    },
+    english: {
+      title: '📖 English Department',
+      teachers: [{ name: 'R Ali', subject: 'English', img: 'images/english1.jpg' }]
+    },
+    social: {
+      title: '🌍 Social Science Department',
+      teachers: [{ name: 'J Ali', subject: 'Social Science', img: 'images/s science.jpg' }]
+    },
+    assamese: {
+      title: '✍️ Assamese Department',
+      teachers: [{ name: 'R Khatun', subject: 'Assamese', img: 'images/assamese.jpg' }]
+    }
+  };
+
+  function showTeacher(key) {
+    const dept = teacherData[key];
+    document.getElementById('teacherSubject').textContent = dept.title;
+    document.getElementById('teachersList').innerHTML = dept.teachers.map(t => `
+      <div class="teacher-card">
+        <img src="${t.img}" alt="${t.name}" onerror="this.style.background='linear-gradient(135deg,#1a3a6e,#2563eb)';this.src=''">
+        <div class="teacher-card-info">
+          <h4>${t.name}</h4>
+          <p>${t.subject}</p>
+        </div>
+      </div>
+    `).join('');
+    document.getElementById('teacherPopup').classList.add('open');
+  }
+
+  function closeTeacher() {
+    document.getElementById('teacherPopup').classList.remove('open');
+  }
+
+  function outsideClick(e) {
+    if (e.target === document.getElementById('teacherPopup')) closeTeacher();
+  }
+
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeTeacher(); });
+</script>
+</body>
+</html>

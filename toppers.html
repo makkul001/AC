@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toppers — SAC School</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="logo">
+    <div class="logo-mark">S</div>
+    <span>SAC School</span>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="academics.html">Academics</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="toppers.html" class="active">Toppers</a>
+    <a href="teachers.html">Teachers</a>
+  </div>
+  <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header" style="margin-top:64px;">
+  <h1>Top Performers</h1>
+  <p>Celebrating our brightest achievers</p>
+</div>
+
+<!-- PODIUM (top 3 highlighted) -->
+<section style="text-align:center; padding-top: 4rem;">
+  <span class="section-label">Hall of Fame</span>
+  <h2 class="section-title">Our <em>Star Students</em></h2>
+
+  <!-- Podium layout -->
+  <div style="display:flex; justify-content:center; align-items:flex-end; gap:1.5rem; margin:3rem auto 2rem; max-width:700px;">
+
+    <!-- 2nd place -->
+    <div style="flex:1; text-align:center;">
+      <div class="person-card" style="border-top: 4px solid #94a3b8;">
+        <div class="rank-badge rank-2" style="margin-bottom:.75rem;">2</div>
+        <img src="images/t2.jpg" alt="Rahul Das" class="avatar"
+             onerror="this.outerHTML='<div class=\'avatar-placeholder\'>RD</div>'">
+        <span class="subject-tag">HSLC-2018</span>
+        <h3>Rahul Das</h3>
+        <div class="score-bar-wrap">
+          <div class="score-label"><span>Score</span><span>95%</span></div>
+          <div class="score-bar"><div class="score-fill" data-width="95"></div></div>
+        </div>
+      </div>
+      <div style="background:var(--navy);color:white;padding:.75rem;border-radius:0 0 8px 8px;font-family:'Fraunces',serif;font-size:1.1rem;">🥈 Silver</div>
+    </div>
+
+    <!-- 1st place -->
+    <div style="flex:1; text-align:center; transform:translateY(-20px);">
+      <div class="person-card" style="border-top: 4px solid var(--amber);">
+        <div class="rank-badge rank-1" style="margin-bottom:.75rem;">1</div>
+        <img src="images/t1.jpg" alt="Ahmed Ali" class="avatar"
+             style="width:110px;height:110px;border:3px solid var(--amber);"
+             onerror="this.outerHTML='<div class=\'avatar-placeholder\' style=\'width:110px;height:110px;\'>AA</div>'">
+        <span class="subject-tag" style="background:#fef3c7;color:#b45309;">HSLC-2019</span>
+        <h3>Ahmed Ali</h3>
+        <div class="score-bar-wrap">
+          <div class="score-label"><span>Score</span><span>96%</span></div>
+          <div class="score-bar"><div class="score-fill" data-width="96"></div></div>
+        </div>
+      </div>
+      <div style="background:var(--amber);color:var(--navy);padding:.75rem;border-radius:0 0 8px 8px;font-family:'Fraunces',serif;font-size:1.1rem;font-weight:700;">🥇 Gold</div>
+    </div>
+
+    <!-- 3rd place -->
+    <div style="flex:1; text-align:center;">
+      <div class="person-card" style="border-top: 4px solid #fca5a5;">
+        <div class="rank-badge rank-3" style="margin-bottom:.75rem;">3</div>
+        <img src="images/t3.jpg" alt="Sara Khan" class="avatar"
+             onerror="this.outerHTML='<div class=\'avatar-placeholder\'>SK</div>'">
+        <span class="subject-tag" style="background:#fef2f2;color:#b91c1c;">HSLC-2023</span>
+        <h3>Sara Khan</h3>
+        <div class="score-bar-wrap">
+          <div class="score-label"><span>Score</span><span>94%</span></div>
+          <div class="score-bar"><div class="score-fill" data-width="94"></div></div>
+        </div>
+      </div>
+      <div style="background:#c73b5b;color:white;padding:.75rem;border-radius:0 0 8px 8px;font-family:'Fraunces',serif;font-size:1.1rem;">🥉 Bronze</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo"><div class="logo-mark">S</div><span>SAC School</span></a>
+      <p style="margin-top:.75rem;">Knowledge · Discipline · Success.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="academics.html">Academics</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="toppers.html">Toppers</a></li>
+        <li><a href="teachers.html">Teachers</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="#">Assam, India</a></li>
+        <li><a href="#">info@sacschool.edu.in</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 SAC School · All Rights Reserved</span>
+  </div>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+  });
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  menuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+    const spans = menuBtn.querySelectorAll('span');
+    const isOpen = navLinks.classList.contains('open');
+    spans[0].style.transform = isOpen ? 'rotate(45deg) translate(5px,5px)' : '';
+    spans[1].style.opacity = isOpen ? '0' : '1';
+    spans[2].style.transform = isOpen ? 'rotate(-45deg) translate(5px,-5px)' : '';
+  });
+
+  // Animate score bars on load
+  window.addEventListener('load', () => {
+    document.querySelectorAll('.score-fill').forEach(bar => {
+      bar.style.width = '0';
+      setTimeout(() => { bar.style.width = bar.dataset.width + '%'; }, 300);
+    });
+  });
+</script>
+</body>
+</html>

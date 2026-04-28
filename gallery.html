@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery — SAC School</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Lightbox */
+    #lightbox {
+      position: fixed; inset: 0; z-index: 3000;
+      background: rgba(5,10,20,.92);
+      backdrop-filter: blur(10px);
+      display: none; align-items: center; justify-content: center;
+      padding: 2rem;
+    }
+    #lightbox.open { display: flex; animation: fadeIn .25s ease; }
+    #lightbox img {
+      max-width: 90vw; max-height: 85vh;
+      border-radius: 10px; object-fit: contain;
+      box-shadow: 0 20px 80px rgba(0,0,0,.6);
+    }
+    #lightbox .lb-close {
+      position: absolute; top: 1.5rem; right: 1.5rem;
+      background: rgba(255,255,255,.12); border: none;
+      color: white; width: 44px; height: 44px; border-radius: 50%;
+      font-size: 1.2rem; cursor: pointer; display: flex;
+      align-items: center; justify-content: center;
+      transition: background .2s;
+    }
+    #lightbox .lb-close:hover { background: rgba(255,255,255,.25); }
+    .gallery-placeholder-box {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.3); gap: .5rem;
+    }
+    .gallery-placeholder-box span:first-child { font-size: 3rem; }
+    .gallery-placeholder-box span:last-child { font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="logo">
+    <div class="logo-mark">S</div>
+    <span>SAC School</span>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="academics.html">Academics</a>
+    <a href="gallery.html" class="active">Gallery</a>
+    <a href="toppers.html">Toppers</a>
+    <a href="teachers.html">Teachers</a>
+  </div>
+  <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header" style="margin-top:64px;">
+  <h1>School Gallery</h1>
+  <p>Moments from campus life</p>
+</div>
+
+<!-- GALLERY -->
+<section>
+  <span class="section-label">Photos</span>
+  <h2 class="section-title">Life at <em>SAC School</em></h2>
+
+  <div class="gallery-grid" id="galleryGrid">
+
+    <div class="gallery-item" onclick="openLightbox('images/g1.jpg', 'School Activity')">
+      <img src="images/g1.jpg" alt="School activity"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="gallery-placeholder-box" style="display:none;">
+        <span>🏫</span><span>Campus Life</span>
+      </div>
+      <div class="gallery-overlay">
+        <span style="color:white;font-size:.85rem;font-weight:500;">🔍 View</span>
+      </div>
+    </div>
+
+    <div class="gallery-item" onclick="openLightbox('images/g2.jpg', 'Classroom')">
+      <img src="images/g2.jpg" alt="Classroom"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="gallery-placeholder-box" style="display:none;">
+        <span>📚</span><span>Classrooms</span>
+      </div>
+      <div class="gallery-overlay">
+        <span style="color:white;font-size:.85rem;font-weight:500;">🔍 View</span>
+      </div>
+    </div>
+
+    <div class="gallery-item" onclick="openLightbox('images/g3.jpg', 'Sports')">
+      <img src="images/g3.jpg" alt="Sports"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="gallery-placeholder-box" style="display:none;">
+        <span>⚽</span><span>Sports</span>
+      </div>
+      <div class="gallery-overlay">
+        <span style="color:white;font-size:.85rem;font-weight:500;">🔍 View</span>
+      </div>
+    </div>
+
+    <div class="gallery-item" onclick="openLightbox('images/g4.jpg', 'Events')">
+      <img src="images/g4.jpg" alt="Events"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="gallery-placeholder-box" style="display:none;">
+        <span>🎉</span><span>Events</span>
+      </div>
+      <div class="gallery-overlay">
+        <span style="color:white;font-size:.85rem;font-weight:500;">🔍 View</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="closeLightbox(event)">
+  <button class="lb-close" onclick="closeLightbox()">✕</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="logo"><div class="logo-mark">S</div><span>SAC School</span></a>
+      <p style="margin-top:.75rem;">Knowledge · Discipline · Success.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="academics.html">Academics</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="toppers.html">Toppers</a></li>
+        <li><a href="teachers.html">Teachers</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="#">Assam, India</a></li>
+        <li><a href="#">info@sacschool.edu.in</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 SAC School · All Rights Reserved</span>
+  </div>
+</footer>
+
+<script>
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20);
+  });
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  menuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+    const spans = menuBtn.querySelectorAll('span');
+    const isOpen = navLinks.classList.contains('open');
+    spans[0].style.transform = isOpen ? 'rotate(45deg) translate(5px,5px)' : '';
+    spans[1].style.opacity = isOpen ? '0' : '1';
+    spans[2].style.transform = isOpen ? 'rotate(-45deg) translate(5px,-5px)' : '';
+  });
+
+  function openLightbox(src, alt) {
+    const lb = document.getElementById('lightbox');
+    const img = document.getElementById('lightboxImg');
+    img.src = src; img.alt = alt;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox(e) {
+    if (!e || e.target === document.getElementById('lightbox') || e.target.classList.contains('lb-close')) {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox({}); });
+</script>
+</body>
+</html>
